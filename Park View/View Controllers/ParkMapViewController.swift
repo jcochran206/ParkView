@@ -33,14 +33,25 @@ import MapKit
 
 class ParkMapViewController: UIViewController {
 
-  
+  var park = Park(filename: "MagicMountain")
+
   var selectedOptions : [MapOptionsType] = []
   
     @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
-    super.viewDidLoad()
-  }
+        super.viewDidLoad()
+        
+        let latDelta = park.overlayTopLeftCoordinate.latitude -
+            park.overlayBottomRightCoordinate.latitude
+        
+        // Think of a span as a tv size, measure from one corner to another
+        let span = MKCoordinateSpanMake(fabs(latDelta), 0.0)
+        let region = MKCoordinateRegionMake(park.midCoordinate, span)
+        
+        mapView.region = region
+    }
+
   
   func loadSelectedOptions() {
     // TODO
