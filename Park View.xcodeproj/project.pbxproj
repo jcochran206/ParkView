@@ -12,6 +12,7 @@
 		B170D5E6214A309400613226 /* ParkMapOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170D5E5214A309400613226 /* ParkMapOverlayView.swift */; };
 		B170D5E8214AFFC600613226 /* AttractionAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170D5E7214AFFC600613226 /* AttractionAnnotation.swift */; };
 		B170D5EA214B001B00613226 /* AttractionAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170D5E9214B001B00613226 /* AttractionAnnotationView.swift */; };
+		B170D5EC214B063B00613226 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170D5EB214B063B00613226 /* Character.swift */; };
 		C09F12DB1F1C39B70013BFBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09F12DA1F1C39B70013BFBC /* AppDelegate.swift */; };
 		C09F12E01F1C39B70013BFBC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C09F12DE1F1C39B70013BFBC /* Main.storyboard */; };
 		C09F12E21F1C39B70013BFBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C09F12E11F1C39B70013BFBC /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 		B170D5E5214A309400613226 /* ParkMapOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkMapOverlayView.swift; sourceTree = "<group>"; };
 		B170D5E7214AFFC600613226 /* AttractionAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionAnnotation.swift; sourceTree = "<group>"; };
 		B170D5E9214B001B00613226 /* AttractionAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionAnnotationView.swift; sourceTree = "<group>"; };
+		B170D5EB214B063B00613226 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		C09F12D71F1C39B70013BFBC /* Park View.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Park View.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C09F12DA1F1C39B70013BFBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C09F12DF1F1C39B70013BFBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				B170D5E1214A2B1300613226 /* Park.swift */,
+				B170D5EB214B063B00613226 /* Character.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B170D5EC214B063B00613226 /* Character.swift in Sources */,
 				B170D5EA214B001B00613226 /* AttractionAnnotationView.swift in Sources */,
 				B170D5E8214AFFC600613226 /* AttractionAnnotation.swift in Sources */,
 				C09F13091F1C40F10013BFBC /* MapOptionsViewController.swift in Sources */,

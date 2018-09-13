@@ -73,7 +73,8 @@ class ParkMapViewController: UIViewController {
                 addRoute()
             case .mapBoundary:
                 addBoundary()
-
+            case .mapCharacterLocation:
+                addCharacterLocation()
             default:
                 break;
             }
@@ -114,6 +115,13 @@ class ParkMapViewController: UIViewController {
         mapView.add(MKPolygon(coordinates: park.boundary, count: park.boundary.count))
     }
 
+    //mark: add character location
+    func addCharacterLocation() {
+        mapView.add(Character(filename: "BatmanLocations", color: .blue))
+        mapView.add(Character(filename: "TazLocations", color: .orange))
+        mapView.add(Character(filename: "TweetyBirdLocations", color: .yellow))
+    }
+
 
 
   
@@ -140,10 +148,15 @@ extension ParkMapViewController: MKMapViewDelegate {
             let polygonView = MKPolygonRenderer(overlay: overlay)
             polygonView.strokeColor = UIColor.magenta
             return polygonView
+        } else if let character = overlay as? Character {
+            let circleView = MKCircleRenderer(overlay: character)
+            circleView.strokeColor = character.color
+            return circleView
         }
         
         return MKOverlayRenderer()
     }
+
 
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
