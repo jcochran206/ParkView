@@ -52,13 +52,13 @@ class ParkMapViewController: UIViewController {
         mapView.region = region
     }
 
-    
+    // mark:  add overlays
     func addOverlay() {
         let overlay = ParkMapOverlay(park: park)
         mapView.add(overlay)
     }
 
-  
+    //mark: switch to add overlays
     func loadSelectedOptions() {
         mapView.removeAnnotations(mapView.annotations)
         mapView.removeOverlays(mapView.overlays)
@@ -69,6 +69,8 @@ class ParkMapViewController: UIViewController {
                 addOverlay()
             case .mapPins:
                 addAttractionPins()
+            case .mapRoute:
+                addRoute()
             default:
                 break;
             }
@@ -79,7 +81,7 @@ class ParkMapViewController: UIViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     (segue.destination as? MapOptionsViewController)?.selectedOptions = selectedOptions
   }
-    
+    //Mark attraction pins
     func addAttractionPins() {
         guard let attractions = Park.plist("MagicMountainAttractions") as? [[String : String]] else { return }
         
@@ -93,6 +95,17 @@ class ParkMapViewController: UIViewController {
             mapView.addAnnotation(annotation)
         }
     }
+    //mark: add route to goliath
+    func addRoute() {
+        guard let points = Park.plist("EntranceToGoliathRoute") as? [String] else { return }
+        
+        let cgPoints = points.map { CGPointFromString($0) }
+        let coords = cgPoints.map { CLLocationCoordinate2DMake(CLLocationDegrees($0.x), CLLocationDegrees($0.y)) }
+        let myPolyline = MKPolyline(coordinates: coords, count: coords.count)
+        
+        mapView.add(myPolyline)
+    }
+
 
   
   @IBAction func closeOptions(_ exitSegue: UIStoryboardSegue) {
@@ -110,10 +123,15 @@ extension ParkMapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         if overlay is ParkMapOverlay {
             return ParkMapOverlayView(overlay: overlay, overlayImage: #imageLiteral(resourceName: "overlay_park"))
+        } else if overlay is MKPolyline {
+            let lineView = MKPolylineRenderer(overlay: overlay)
+            lineView.strokeColor = UIColor.green
+            return lineView
         }
         
         return MKOverlayRenderer()
     }
+
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let annotationView = AttractionAnnotationView(annotation: annotation, reuseIdentifier: "Attraction")
