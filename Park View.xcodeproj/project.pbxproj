@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B170D5E2214A2B1300613226 /* Park.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170D5E1214A2B1300613226 /* Park.swift */; };
+		B170D5E4214A304800613226 /* ParkMapOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170D5E3214A304800613226 /* ParkMapOverlay.swift */; };
+		B170D5E6214A309400613226 /* ParkMapOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170D5E5214A309400613226 /* ParkMapOverlayView.swift */; };
 		C09F12DB1F1C39B70013BFBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09F12DA1F1C39B70013BFBC /* AppDelegate.swift */; };
 		C09F12E01F1C39B70013BFBC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C09F12DE1F1C39B70013BFBC /* Main.storyboard */; };
 		C09F12E21F1C39B70013BFBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C09F12E11F1C39B70013BFBC /* Assets.xcassets */; };
@@ -24,6 +26,8 @@
 
 /* Begin PBXFileReference section */
 		B170D5E1214A2B1300613226 /* Park.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Park.swift; sourceTree = "<group>"; };
+		B170D5E3214A304800613226 /* ParkMapOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkMapOverlay.swift; sourceTree = "<group>"; };
+		B170D5E5214A309400613226 /* ParkMapOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkMapOverlayView.swift; sourceTree = "<group>"; };
 		C09F12D71F1C39B70013BFBC /* Park View.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Park View.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C09F12DA1F1C39B70013BFBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C09F12DF1F1C39B70013BFBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -117,6 +121,8 @@
 		C0B630FF1F2B025F00E888EA /* Overlays */ = {
 			isa = PBXGroup;
 			children = (
+				B170D5E3214A304800613226 /* ParkMapOverlay.swift */,
+				B170D5E5214A309400613226 /* ParkMapOverlayView.swift */,
 			);
 			path = Overlays;
 			sourceTree = "<group>";
@@ -208,6 +214,8 @@
 				C09F13091F1C40F10013BFBC /* MapOptionsViewController.swift in Sources */,
 				C09F130A1F1C40F10013BFBC /* ParkMapViewController.swift in Sources */,
 				C09F12DB1F1C39B70013BFBC /* AppDelegate.swift in Sources */,
+				B170D5E4214A304800613226 /* ParkMapOverlay.swift in Sources */,
+				B170D5E6214A309400613226 /* ParkMapOverlayView.swift in Sources */,
 				B170D5E2214A2B1300613226 /* Park.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
