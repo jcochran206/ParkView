@@ -67,6 +67,8 @@ class ParkMapViewController: UIViewController {
             switch (option) {
             case .mapOverlay:
                 addOverlay()
+            case .mapPins:
+                addAttractionPins()
             default:
                 break;
             }
@@ -77,6 +79,21 @@ class ParkMapViewController: UIViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     (segue.destination as? MapOptionsViewController)?.selectedOptions = selectedOptions
   }
+    
+    func addAttractionPins() {
+        guard let attractions = Park.plist("MagicMountainAttractions") as? [[String : String]] else { return }
+        
+        for attraction in attractions {
+            let coordinate = Park.parseCoord(dict: attraction, fieldName: "location")
+            let title = attraction["name"] ?? ""
+            let typeRawValue = Int(attraction["type"] ?? "0") ?? 0
+            let type = AttractionType(rawValue: typeRawValue) ?? .misc
+            let subtitle = attraction["subtitle"] ?? ""
+            let annotation = AttractionAnnotation(coordinate: coordinate, title: title, subtitle: subtitle, type: type)
+            mapView.addAnnotation(annotation)
+        }
+    }
+
   
   @IBAction func closeOptions(_ exitSegue: UIStoryboardSegue) {
     guard let vc = exitSegue.source as? MapOptionsViewController else { return }
@@ -97,6 +114,13 @@ extension ParkMapViewController: MKMapViewDelegate {
         
         return MKOverlayRenderer()
     }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let annotationView = AttractionAnnotationView(annotation: annotation, reuseIdentifier: "Attraction")
+        annotationView.canShowCallout = true
+        return annotationView
+    }
+
 
     
 }
